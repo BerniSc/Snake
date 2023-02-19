@@ -129,22 +129,22 @@ int main() {
             case 'a' :
                 if(head->getDirection() == game_constants::direction::right) break;
                 head->setDirection(game_constants::direction::left);
-                input = ' ';
+                input = '+';
                 break;
             case 'd' :
                 if(head->getDirection() == game_constants::direction::left) break;
                 head->setDirection(game_constants::direction::right);
-                input = ' ';
+                input = '+';
                 break;
             case 's' :
                 if(head->getDirection() == game_constants::direction::up) break;
                 head->setDirection(game_constants::direction::down);
-                input = ' ';
+                input = '+';
                 break;
             case 'w' :
                 if(head->getDirection() == game_constants::direction::down) break;
                 head->setDirection(game_constants::direction::up);
-                input = ' ';
+                input = '+';
                 break;
             case 'q' :
                 head->deleteSnake();
@@ -153,8 +153,12 @@ int main() {
                 cout << "Quitting..." << endl;
                 stop = 1;
                 break;
-            //Normal input if nothing pressed
             case ' ' :
+                tickCounter = game_constants::tick_number - 1;
+                input = '+';
+                break;
+            //Normal input if nothing pressed
+            case '+' :
                 break;
             default :
                 cout << "Wrong Input" << endl;
